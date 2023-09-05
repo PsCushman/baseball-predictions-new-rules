@@ -82,6 +82,7 @@ H3_style = {
 
 # Create the Dash app
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 app.layout = html.Div(children=[
     html.Div(style=BACKGROUND_IMAGE_STYLE),  # Background image div
@@ -383,4 +384,4 @@ def update_graphs(name):
         [player_info_with_title]   # Output "player-info-container.children"
     )
 if __name__ == "__main__":
-    app.run_server(debug=True, port=8051)
+    app.run_server(debug=True)
