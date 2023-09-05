@@ -49,7 +49,7 @@ To facilitate interaction with the pitcher and hitter data, we've designed two i
 
 ![Screen Shot 2023-08-31 at 8 23 40 PM](https://github.com/PsCushman/baseball-rule-changes/assets/122395437/856e7aca-38cd-4f50-a122-dec1a1add7da)
 
-To utilize the dashboards, you will need to download the Dash-Pitcher and Dash-Hitter. Once downloaded, you will need to open gitbash or terminal at the directory. 
+To utilize the dashboards, you will need to download the Dash-Pitcher and dash_hitter. Once downloaded, you will need to open gitbash or terminal at the directory. 
 
 For the picher dashboard use this command:
     
@@ -59,7 +59,9 @@ For the hitter dashboard:
     
     python hit_app.py
     
-The flask app should run on localhost http://127.0.0.1:8050/ or http://127.0.0.1:8051/.
+The app should run on localhost http://127.0.0.1:8050/ or http://127.0.0.1:8051/.
+
+The hitter dashboard is also running on [Heroku](https://hitter-dashboard-c2418a816a17.herokuapp.com/).
 
 Additionally, our [Tableau story dashboard](https://public.tableau.com/app/profile/leonardo.pierantoni/viz/MLBPredictions/Story1?publish=yes) delves into 2023 WAR predictions, with a focus on young players. Navigate through interactive graphs and images, and explore predicted WAR for 2023. Take a peek at the team projected to have the highest WAR for 2024 and compare it to the current standings.
 
