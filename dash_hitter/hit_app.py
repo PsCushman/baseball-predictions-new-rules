@@ -4,6 +4,8 @@ import pandas as pd
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import requests
+from io import StringIO
 
 external_stylesheets = [
     'https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap',
@@ -208,9 +210,17 @@ def update_graphs(name):
             [],  # Output "player-info-container.children"
         )
 
-    player_data = pd.read_csv("dash_full_batter_data.csv")
-    verdict_data = pd.read_csv("verdict.csv")
-    
+    player_data_url = 'https://raw.githubusercontent.com/PsCushman/baseball-predictions-new-rules/main/dash_hitter/dash_full_batter_data.csv'
+    verdict_data_url = 'https://raw.githubusercontent.com/PsCushman/baseball-predictions-new-rules/main/dash_hitter/verdict.csv'
+
+    # Fetch the CSV data from GitHub
+    response_player_data = requests.get(player_data_url)
+    response_verdict_data = requests.get(verdict_data_url)
+
+    # Read the CSV data into pandas DataFrames
+    player_data = pd.read_csv(StringIO(response_player_data.text))
+    verdict_data = pd.read_csv(StringIO(response_verdict_data.text))
+        
     player_info = player_data[player_data["Name"].str.contains(name, case=False)]
     verdict_info = verdict_data[verdict_data["Name"].str.contains(name, case=False)]
     
